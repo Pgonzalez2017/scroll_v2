@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">           
+    <head>
+        <meta charset="UTF-8">
+        <title>Rhino Envy</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="libreria.json"./js/envy.js""></script>
+        <link rel="stylesheet" href="./css/envy.css">
+    </head>
+    <body;
+        <div id="envy-video-container">
+            <video id="envy-video" src="https://media.giphy.com/media/FsVQSRCXewNFPmVfL8/giphy.mp4"></video>
+        </div>
+        <div id="video-controls">   
+            <p id="video-current-time"></p>
+            <div class="video-control"><button id="rewind-button">rewind to</button><input type="text" id="play-to-time" placeholder="forward time" value="0"></div>
+            <button id="play-button">play</button>
+        </div>
+        <ul id="envy-steps">
+            <li id="envy-step-indicator-1"></li>
+            <li id="envy-step-indicator-2"></li>
+            <li id="envy-step-indicator-3"></li>
+        </ul>
+        <section id="envy-full-range">
+            <div id="envy-1-door-link"></div>
+            <div id="envy-2-door-link"></div>
+            <div id="envy-3-door-link"></div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+var envyVideo, currentVideoTrigger = 0,
+    currentIndicator, startTime, vid, playTimestamp, playTo, playAmount, triggeredTime, rewindInterval;
+
+$(function() {
+
+    vid = document.getElementById("envy-video");
+
+    $("#play-button").click(function() {
+        vid.play();
+    });
+
+    $("#rewind-button").click(function() {
+        vid.pause();
+        playTo = parseFloat($("#play-to-time").val());
+        playAmount = playTo - vid.currentTime;
+        triggeredTime = vid.currentTime;
+        requestAnimationFrame(rewindToPointInTime);
+    });
+
+});
+
+function rewindToPointInTime(timestamp) {
+
+    if (!playTimestamp) playTimestamp = timestamp;
+    var timeDifference = (timestamp - playTimestamp) / 1000;
+    vid.currentTime = triggeredTime + (playAmount * (timeDifference / Math.abs(playAmount)));
+
+    if (vid.currentTime > playTo) {
+        requestAnimationFrame(rewindToPointInTime);
+    } else {
+        playTimestamp = null;
+        playAmount = null;
+    }
+
+}// JSON Document
